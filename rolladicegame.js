@@ -1,13 +1,22 @@
 var scores = [0,0];
 var roundScore = 0;
 var activePlayer = 1;
-//calculating the random number from 1 to 6
-var dice = Math.floor(Math.random()*6)+1;
-//selecting the specific id and changing its text and assigning the random number
-document.querySelector("#current-" +activePlayer).textContent = dice;
 
-var dices = document.querySelectorAll(".dice");
-dices.forEach( function(dice, i) {
-	// statements
-	dice.style.display ='none';
+//hiding the dices
+document.querySelector(".dice").style.display = 'none';
+document.getElementById('score-0').textContent = '0';
+document.getElementById('score-1').textContent = '0';
+document.getElementById('current-0').textContent = '0';
+document.getElementById('current-1').textContent = '0';
+
+//button clicking events
+document.querySelector('.btn-roll').addEventListener('click', function(){
+	//random number
+	var dice = Math.floor(Math.random()*6)+1;
+	//display result
+	var diceDOM = document.querySelector(".dice")
+	diceDOM.style.display = 'block';
+	diceDOM.src = 'dice-' + dice + '.png';
+
+
 });
